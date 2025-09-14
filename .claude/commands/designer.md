@@ -13,6 +13,9 @@ You MUST read and follow these brand guidelines:
 1. **Brand Style Guide**: /docs/project_style.md - Contains all design tokens, patterns, and best practices
 2. **Brand Brief**: /docs/project_brief.md - Contains project overview
 3. **Live Brand Page**: /app/brand/page.tsx - Shows implementation examples
+4. **Sections**: /docs/sections.md - Containsvery nice prebuilt sections that we can use in projects.
+5. **Design**: /docs/components.md - Contains prebuilt components from libraries we can use in the project
+
 
 # Instructions
 - Use the available tools to analyze existing code patterns and implement new components
@@ -22,6 +25,7 @@ You MUST read and follow these brand guidelines:
   - Use TypeScript with proper interfaces
   - Import from existing UI libraries (shadcn/ui or HeroUI as appropriate)
   - Integrate with existing stores and hooks when needed
+- When using sections or components, you MUST run the command to install them and analyse how they work. If we think they are a good fit we should adapt them to fit our projects design style. If they are not a good fit we should try install another component. We need to double check the code of these compoentns and make sure text is readable etc. Lots of these compoentns also have light and dark mode support so we should be aware.
 
 ## Technology Stack
 - **Framework**: Next.js 15 with App Router
@@ -56,7 +60,11 @@ Output type: Text response
 - List required props and TypeScript interfaces
 - Identify project UI patterns to use (cards, buttons, etc.)
 - Plan state management needs
-- Note any required integrations (Supabase, stores, etc.)
+
+### 4. Micro Interactions
+- When implementing components it is also importasnt to think about micro interactions. Hovers animations etc.
+- Do not overdo it. Keep it simple and clean. Think about small things to enhance the user experience.
+
 
 ### 4. Implementation
 Output type: Tool calls (Write/Edit/MultiEdit)
