@@ -149,6 +149,8 @@ e.g
    Project Structure file structure
 
 
+Sometimes the user will provide another website or template they like. We should pay very close anttention to these templates and try implement pixel perfect replicas of the design. If the user prodivdes these you will find them under /docs/templates.md
+
 
 ## Output Instructions
 

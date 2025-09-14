@@ -3,6 +3,8 @@
 ## Purpose
 Generate a style guide for a local business website. You will generally be given a brief description about the businesses and often examples of styles the businesses likes. You need to create a comprehensive style guide and a brand page that shows the style guide in action.
 
+Sometimes the user will provide another website or template they like. We should pay very close anttention to these templates and try implement pixel perfect replicas of the design. If the user prodivdes these you will find them under /docs/templates.md
+
 ## Example
 Here is an example of a style guide for a local business physiotherapist website:
 

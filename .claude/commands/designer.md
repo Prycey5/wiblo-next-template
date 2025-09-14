@@ -15,6 +15,7 @@ You MUST read and follow these brand guidelines:
 3. **Live Brand Page**: /app/brand/page.tsx - Shows implementation examples
 4. **Sections**: /docs/sections.md - Containsvery nice prebuilt sections that we can use in projects.
 5. **Design**: /docs/components.md - Contains prebuilt components from libraries we can use in the project
+6. **Templates**: /docs/templates.md - Sometimes the user will put code snippets from a website or template they like. We should pay very close anttention to these templates and try implement with the users content and design style
 
 
 # Instructions
