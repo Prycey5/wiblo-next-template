@@ -26,6 +26,7 @@ This project has specialized agents configured for streamlined development:
 - **project-brief-generator** - Project brief creation
 - **style-guide-generator** - Style guide and brand page generation
 - **project-task-generator** - Task list generation from briefs
+- **component-designer** - Component implementation and enhancement
 
 ### Agent Descriptions:
 
@@ -37,6 +38,21 @@ Generates comprehensive style guides and brand pages for local business websites
 
 #### project-task-generator
 Creates comprehensive task lists from project briefs. Analyzes project briefs and generates detailed, actionable tasks. Use after creating project brief and style guide, or when updating task lists based on requirement changes.
+
+#### component-designer
+Designs and implements React/Next.js components following the project's established design system. This agent should be used when:
+- Creating NEW sections or components (not when copying existing templates)
+- Implementing custom UI features from scratch
+- Adding micro-interactions or animations to components
+- Enhancing existing components with new functionality
+- Building complex interactive elements
+- Adapting pre-built components to match brand guidelines
+
+DO NOT use this agent when:
+- Directly copying or cloning existing template code
+- Making simple text or content changes
+- Updating basic styles or colors
+- Performing routine maintenance tasks
 
 ## Common Project Workflow
 
@@ -64,6 +80,7 @@ Creates comprehensive task lists from project briefs. Analyzes project briefs an
 
 5. **Implementation**
    - Work through generated tasks systematically
+   - Use `component-designer` agent when creating NEW components or sections
    - Run `pnpm run check` after each major component/feature
    - Update context files as you progress
    - Build project with `pnpm build` after completing major milestones
@@ -107,14 +124,31 @@ All shadcn/ui components are pre-installed and configured with the "new-york" st
 
 ### Sub Agents
 
-**Available sub agents:** `project-brief-generator`, `style-guide-generator`, `project-task-generator`
+**Available sub agents:** `project-brief-generator`, `style-guide-generator`, `project-task-generator`, `component-designer`
 
-Sub agents will do research about the implementation, but you will do the actual implementation.
+Sub agents have different responsibilities:
+- **Planning agents** (project-brief-generator, style-guide-generator, project-task-generator): Do research and create documentation
+- **Implementation agent** (component-designer): Actually implements components and features
 
 When working with sub agents:
 - Pass the context file when invoking (e.g. '.claude/tasks/session_context_x.md')
-- After each sub agent completes, read their generated documentation before implementing
-- Sub agents create documentation in `.claude/docs/` and task lists in `.claude/tasks/`
+- Planning agents create documentation in `.claude/docs/` and task lists in `.claude/tasks/`
+- component-designer should be used for NEW component creation, NOT for copying templates
+- After each sub agent completes, review their output before proceeding
+
+#### When to use component-designer:
+✅ USE when:
+- Creating new sections from scratch
+- Building custom interactive components
+- Adding animations or micro-interactions
+- Implementing complex UI features
+- Enhancing components with new functionality
+
+❌ DO NOT USE when:
+- Copying/cloning existing template code
+- Making simple content updates
+- Changing colors or basic styles
+- Following a provided template exactly
 
 
 Never write obvious comments.
