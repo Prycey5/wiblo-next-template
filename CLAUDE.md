@@ -62,20 +62,44 @@ IMPORTANT IMAGE HANDLING:
 
 ## Common Project Workflow
 
+### Scraping a Website with Firecrawl
+
+To scrape a website and save it as a template:
+```bash
+
+# Scrape with custom output directory
+node scrape.js https://example.com -o docs/template_to_clone
+
+
+```
+
+**Requirements:**
+- Set `FIRECRAWL_API_KEY` in your `.env` file
+- Get API key from: https://firecrawl.dev
+
+**Output files:**
+- `content.html` - Full HTML with actual image URLs
+- `content.md` - Markdown version of content
+- `metadata.json` - SEO metadata and page info
+- `screenshot.png` - Page screenshot (if available)
+
 ### Starting a New Project:
 
-1. **Check Template Resources** (if cloning existing site)
-   - First check `docs/template_to_clone/` folder for any existing templates or reference materials
+1. **Scrape Target Website** (if cloning)
+   - Run `node scrape.js [URL] -o docs/template_to_clone`
+   - This creates template files with all content and actual image URLs
+
+2. **Check Template Resources**
+   - Check `docs/template_to_clone/` for any existing templates or reference materials
    - Extract all image URLs from `content.html` - these are the ACTUAL images to use
-   - Review any provided design files or brand guidelines
    - IMPORTANT: Never substitute template images with stock photos or placeholders
 
-2. **Generate Project Brief**
+3. **Generate Project Brief**
    - Use `project-brief-generator` agent to create comprehensive project documentation
    - This will gather business requirements, SEO needs, and technical specifications
    - Output saved to `.claude/docs/project-brief.md`
 
-3. **Create Style Guide**
+4. **Create Style Guide**
    - Use `style-guide-generator` agent to establish visual identity
    - Generates color schemes, typography, and component styles
    - Creates working brand page at `app/brand/page.tsx`
@@ -92,6 +116,7 @@ IMPORTANT IMAGE HANDLING:
    - Run `pnpm run check` after each major component/feature
    - Update context files as you progress
    - Build project with `pnpm build` after completing major milestones
+   - Remind the component-designer agent to use actual images from the template
 
 ## Architecture
 
