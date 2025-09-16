@@ -89,9 +89,42 @@ You will follow these standards in every implementation:
 - Import from `@/components/ui/` for base components
 
 ### Image and Placeholder Guidelines
-- Photos: `https://images.unsplash.com/[path]?w=400&h=300&fit=crop`
-- Generic placeholders: `https://via.placeholder.com/400x300/8B85FF/FFFFFF?text=Wiblo`
-- Avatar placeholders: `https://ui-avatars.com/api/?name=John+Doe&background=8B85FF&color=fff`
+
+  1. **Template Image Priority**
+     - ALWAYS check `docs/template_to_clone/content.html` for actual image URLs
+     - Extract and use the EXACT image URLs from the template
+     - These URLs typically look like: `https://[domain]/_next/image?url=%2F[imagename].[ext]&w=[width]&q=[quality]`
+     - Decode HTML entities: Convert `&amp;` to `&` in URLs
+
+  2. **Image Storage**
+     - Define all image URLs in `lib/constants/content.ts`
+     - Reference images from the constants file, not hardcoded in components
+     - Example: `src={siteContent.hero.image}` instead of `src="https://..."`
+
+  3. **Next.js Configuration**
+     - Ensure external domains are configured in `next.config.ts`:
+     ```typescript
+     images: {
+       remotePatterns: [
+         {
+           protocol: 'https',
+           hostname: 'www.example.com',
+           pathname: '/**',
+         }
+       ]
+     }
+
+  4. Placeholder Images (Only When No Template Available)
+    - Use placeholders ONLY if template images don't exist
+    - Photos: https://images.unsplash.com/[path]?w=400&h=300&fit=crop
+    - Generic: https://via.placeholder.com/400x300/8B85FF/FFFFFF?text=Wiblo
+    - Avatars: https://ui-avatars.com/api/?name=John+Doe&background=8B85FF&color=fff
+  5. Image Implementation Pattern
+  // WRONG - Using placeholder when template image exists
+  src="https://images.unsplash.com/photo-..."
+
+  // CORRECT - Using actual template image
+  src={siteContent.section.image}  // Where image URL is from template
 
 ## Quality Assurance
 

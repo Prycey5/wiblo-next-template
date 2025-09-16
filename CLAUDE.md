@@ -54,13 +54,21 @@ DO NOT use this agent when:
 - Updating basic styles or colors
 - Performing routine maintenance tasks
 
+IMPORTANT IMAGE HANDLING:
+- ALWAYS use actual images from the template (docs/template_to_clone/) when available
+- Extract image URLs from content.html in the template folder
+- If we do not have actual images, use placeholder images from Unsplash or other stock photo sites
+- All images should reference the actual URLs from the template
+
 ## Common Project Workflow
 
 ### Starting a New Project:
 
 1. **Check Template Resources** (if cloning existing site)
    - First check `docs/template_to_clone/` folder for any existing templates or reference materials
+   - Extract all image URLs from `content.html` - these are the ACTUAL images to use
    - Review any provided design files or brand guidelines
+   - IMPORTANT: Never substitute template images with stock photos or placeholders
 
 2. **Generate Project Brief**
    - Use `project-brief-generator` agent to create comprehensive project documentation
@@ -121,6 +129,13 @@ All shadcn/ui components are pre-installed and configured with the "new-york" st
 - context_session_x.md should contain most of context of what we did, overall plan, and sub agents will continusly add context to the file
 - After you finish the work, MUST update the .claude/tasks/context_session_x.md file to make sure others can get full context of what you did
 - Always do a pnpm run check after you finish tasks and update the tasks file
+
+### Image Handling Rules
+- **ALWAYS use actual template images** - When cloning a template, extract and use the exact image URLs from docs/template_to_clone/content.html
+- **Never use placeholder images** - Do not use Unsplash, Pexels, or any stock photo placeholders
+- **Store image URLs in constants** - All image URLs should be defined in lib/constants/content.ts
+- **Configure Next.js for external images** - Add required domains to next.config.ts remotePatterns
+- **Decode HTML entities** - Convert &amp; to & in image URLs when extracting from HTML
 
 ### Sub Agents
 
